@@ -58,7 +58,7 @@ $(NAME): $(OBJS) $(LIBS) $(GLFW)
 
 all: $(NAME)
 
-.PHONY: clean fclean re rere debug
+.PHONY: clean fclean libclean re rere debug
 
 obj/%.o: $(SRCDIR)%.c
 	@mkdir -p $(@D)
@@ -87,10 +87,18 @@ clean:
 
 fclean: clean
 	@printf "$(RED)- $(BLUE)"
-	rm -f $(NAME) $(LIBS)
+	rm -f $(NAME)
 	@printf "$(RESET)"
 
+libclean:
+	@printf "$(RED)- $(BLUE)"
+	rm -f $(LIBS)
+	@printf "$(RESET)"
+
+
 re: fclean all
+
+rere: libclean re
 
 run: $(NAME)
 	./$(NAME)
