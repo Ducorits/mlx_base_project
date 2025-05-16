@@ -16,7 +16,7 @@ git submodule update
 Set a new remote origin
 
 ```bash
-git remote add origin <name of your repository>
+git remote set-url origin <name of your repository>
 git branch -M master
 git push -u origin master
 ```
