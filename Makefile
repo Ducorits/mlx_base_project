@@ -51,7 +51,7 @@ else
 CFLAGS	= -Wall -Wextra -Werror
 endif
 
-$(NAME): $(OBJS) $(LIBS) $(GLFW)
+$(NAME): $(GLFW) $(LIBS) $(OBJS)
 	@printf "$(INSET)"
 	$(CC) $(CFLAGS) $(INC) $^ -o $@
 	@printf "$(GREEN)+ $(ORANGE)Created "$(NAME)" executable.\n$(RESET)"
